@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /* Source: HackerRank
-   Reverse a linked list */
+ Reverse a linked list */
 
 typedef struct list {
     int key;
@@ -10,20 +10,21 @@ typedef struct list {
 } list;
 
 
-void append_to_tail(list **root, int item) {
+void appendAtTail(list **root, int item) {
     
-    list *new_node = malloc(sizeof(list));
+    list *node = malloc(sizeof(list));
     list *p = *root;
     
-    new_node->key = item;
-    new_node->next = NULL;
+    node->key = item;
+    node->next = NULL;
     
-    if (*root == NULL)
-        *root = new_node;
-    else {
-        while (p->next)
+    if (*root == NULL) {
+        *root = node;
+    } else {
+        while (p->next) {
             p = p->next;
-        p->next = new_node;
+        }
+        p->next = node;
     }
 }
 
@@ -37,7 +38,7 @@ void print(list *head) {
 
 void reverse(list **head) {
     
-    list *prev = NULL, *cur = (*head), *temp;
+    list *prev = NULL, *cur = *head, *temp;
     
     while (cur) {
         temp = cur->next;
@@ -52,11 +53,11 @@ int main() {
     
     list *x = NULL;
     
-    append_to_tail(&x, 1);
-    append_to_tail(&x, 2);
-    append_to_tail(&x, 3);
-    append_to_tail(&x, 4);
-    append_to_tail(&x, 5);
+    appendAtTail(&x, 1);
+    appendAtTail(&x, 2);
+    appendAtTail(&x, 3);
+    appendAtTail(&x, 4);
+    appendAtTail(&x, 5);
     
     print(x);
     printf("\n");
@@ -65,7 +66,7 @@ int main() {
     
     print(x);
     printf("\n");
-
+    
     
     return 0;
 }
