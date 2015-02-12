@@ -1,5 +1,4 @@
-#include <stdio.h>
-
+//
 /* Project Euler #7: 10001st prime
 Constraints
 1 ≤ T ≤ 10^3
@@ -13,10 +12,11 @@ Sample Output
 13
 */
 
+#include <stdio.h>
+
 #define N 110000
 
 void sieve(int* primes) {
-    
     int p, i, j, s[N];
     
     for (i = 0; i < N; i++)
@@ -25,11 +25,9 @@ void sieve(int* primes) {
 
     p = 2;
     while (p < N) {
-
         for (j = 2*p; j < N; j+=p) {
             s[j] = 0;
         }
-
         for (i = p+1; p < N; i++) {
             if (s[i] == 1) {
                 p = i;
@@ -37,7 +35,6 @@ void sieve(int* primes) {
             }
         }
     }
-
     int index = 1;
     for (i = 0; i < N; i++) {
         if (s[i] == 1) {
@@ -47,7 +44,6 @@ void sieve(int* primes) {
 }
 
 int main() {
-    
     int n, test_cases, primes[100002];
     
     sieve(primes);

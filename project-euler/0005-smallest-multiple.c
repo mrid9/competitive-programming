@@ -1,4 +1,4 @@
-#include <stdio.h>
+//
 /* Project Euler #5: Smallest multiple
 Constraints
 1 ≤ T ≤ 10
@@ -11,6 +11,8 @@ Sample Output
 6
 2520
 */
+
+#include <stdio.h>
 
 unsigned long long int gcd(unsigned long long int a, unsigned long long int b) {
     if (b == 0) {
